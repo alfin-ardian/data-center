@@ -16,3 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// $router->group(['prefix' => 'user'], function () use ($router) {
+//     $router->get('/',  ['uses' => 'UserController@list']);
+//     $router->get('/{id}', ['uses' => 'UserController@show']);
+//     $router->post('upload_logo', 'UserController@uploadLogo');
+//     $router->post('create', ['uses' => 'UserController@create']);
+//     $router->post('update/{id}', ['uses' => 'UserController@update']);
+//     $router->delete('/{id}', ['uses' => 'UserController@delete']);
+// });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
